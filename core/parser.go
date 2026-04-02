@@ -405,7 +405,8 @@ func (p *Parser) ParseDocxBlockTable(t *lark.DocxBlockTable) string {
 	for i, blockId := range t.Cells {
 		block := p.blockMap[blockId]
 		cellContent := p.ParseDocxBlock(block, 0)
-		cellContent = strings.ReplaceAll(cellContent, "\n", "")
+		//cellContent = strings.ReplaceAll(cellContent, "\n", "")
+		cellContent = strings.ReplaceAll(cellContent, "\n", "<br>")
 		rowIndex := int64(i) / t.Property.ColumnSize
 		colIndex := int64(i) % t.Property.ColumnSize
 
