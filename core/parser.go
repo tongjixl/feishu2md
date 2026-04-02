@@ -410,8 +410,8 @@ func (p *Parser) ParseDocxBlockTable(t *lark.DocxBlockTable) string {
 		cellContent = strings.ReplaceAll(cellContent, "\n", "<br>")
 
 		// opt: replace \t with &nbsp; to support tab
-		//cellContent = strings.ReplaceAll(cellContent, "\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
-		cellContent = strings.ReplaceAll(cellContent, "\t", "  ")
+		cellContent = strings.ReplaceAll(cellContent, "\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
+		//cellContent = strings.ReplaceAll(cellContent, "\t", "  ")
 
 		rowIndex := int64(i) / t.Property.ColumnSize
 		colIndex := int64(i) % t.Property.ColumnSize
